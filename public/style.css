@@ -1,0 +1,30 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 40px;
+    padding: 20px;
+    color: #333;
+}
+  
+input, button {
+    padding: 10px;
+    font-size: 16px;
+    margin-right: 10px;
+}
+  
+#chat {
+    margin-top: 20px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    max-width: 500px;
+    background: #fff;
+}
+
+button{
+    background: #32CD32;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 18px; 
+}
+  

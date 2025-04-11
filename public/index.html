@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Chat WebSocket</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <h2>Chat WebSocket</h2>
+  <input id="msgInput" placeholder="Digite uma mensagem..." />
+  <button onclick="sendMessage()">Enviar</button>
+  <div id="chat"></div>
+
+  <script>
+    const socket = new WebSocket('ws://localhost:8080');
+    const chat = document.getElementById('chat');
+
+    socket.onopen = () => {
+      addMessage('✅ Conectado ao servidor');
+    };
+
+    socket.onmessage = (event) => {
+      addMessage('📨 Servidor: ' + event.data);
+    };
+
+    socket.onclose = () => {
+      addMessage('❌ Conexão encerrada');
+    };
+
+    function sendMessage() {
+      const input = document.getElementById('msgInput');
+      const msg = input.value;
+      if (msg && socket.readyState === WebSocket.OPEN) {
+        socket.send(msg);
+        addMessage('📤 Você: ' + msg);
+        input.value = '';
+      }
+    }
+
+    function addMessage(text) {
+      const p = document.createElement('p');
+      p.innerText = text;
+      chat.appendChild(p);
+    }
+  </script>
+</body>
+
+<script src="./script.js"></script>
+</html>
