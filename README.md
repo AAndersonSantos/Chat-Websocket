@@ -14,7 +14,7 @@ Este é um projeto simples que demonstra o uso de WebSockets com Node.js para co
 
 1. Clone o repositório:
 ```bash
-git clone https://github.com/seu-usuario/websocket-chat-simples.git
+git clone https://git@github.com:AAndersonSantos/Chat-Websocket.git
 cd chat-websocket
 ```
 
